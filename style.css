@@ -54,7 +54,7 @@ h1 {
     font-size: 1.25rem;
     color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1rem;
 }
 
 .badge {
@@ -378,7 +378,7 @@ footer {
 
 .pep-button {
     display: inline-block;
-    margin: 2rem auto;
+    margin: 1rem auto;
     padding: 1.25rem 3rem;
     background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
     background-size: 200% 200%;
