@@ -36,7 +36,7 @@
     <body>
         <div class="warning-banner">
             <span class="warning-banner-icon">⚠️</span>
-            <span class="warning-banner-text">This implementation may be out of date or contain bugs. Last updated 2026-06-24.</span>
+            <span class="warning-banner-text">This implementation may be out of date or contain bugs. Last updated 2026-06-26.</span>
         </div>
         <div id="repldemo">
             <div class="container">
@@ -85,18 +85,18 @@
                                     <td><code>_t.b if (_t := a) is not None else None</code></td>
                                 </tr>
                                 <tr>
-                                    <td>▶ None-aware subscript</td>
+                                    <td>▶ None-aware indexing</td>
                                     <td><code>a?[b]</code></td>
                                     <td><code>_t[b] if (_t := a) is not None else None</code></td>
                                 </tr>
                                 <tr>
-                                    <td>▶ None-Coalesce</td>
+                                    <td>▶ None-coalesce</td>
                                     <td><code>a ?? b</code></td>
                                     <td><code>_t if (_t := a) is not None else b</code></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>▶ None-Coalesce assign</td>
+                                    <td>▶ None-coalesce assignment</td>
                                     <td style="padding-right: 1rem"><code>a ??= b</code></td>
                                     <td><code>if a is None: a = b</code></td>
                                 </tr>
@@ -123,50 +123,25 @@
                                 <h2 class="card-title">Code Editor</h2>
                             </div>
                             <div class="card-body">
-                                <div id="editor"># Demonstrating PEP 823 None-aware operators
-# and PEP 824 Coalescing operators
+                                <div id="editor"># Example using PEP 823 None-aware operators
+# and PEP 824 None-coalescing operators
 from dataclasses import dataclass
 
 @dataclass
-class Item:
+class Data:
+    user: User | None
+
+@dataclass
+class User:
     name: str
-    price: float
 
-@dataclass
-class ShoppingCard:
-    items: list[Item] | None = None
+responses = [
+    Data(user=User("Alex")),
+    Data(user=None),
+]
 
-@dataclass
-class Customer:
-    name: str | None = None
-    card: ShoppingCard | None = None
-    discount: float | None = None
-
-alex = Customer(
-    name="Alex",
-    card=ShoppingCard(
-        items=[
-            Item("Apples", 3.14),
-            Item("Bananas", 2.72),
-        ]))
-
-sandra = Customer(card=ShoppingCard())
-
-for customer in (alex, sandra):
-    print(f"Customer: {customer.name?.upper()}")
-    customer.name ??= "Unknown customer"
-    print(f"Updated name: {customer.name}")
-
-    total = sum(
-        item.price for item in customer.card?.items ?? ()
-    )
-    print(f"Shopping card total: {total}")
-
-    first_item = customer.card?.items?[0]
-    print(f"First item in shopping card: {first_item}")
-
-    print("---")
-
+for data in responses:
+    print(f"User name: {data.user?.name ?? "unknown"}")
 </div>
                                 <div class="button-container" style="margin-top: 1rem;">
                                     <button id="run" class="run" disabled>▶ Run Code</button>
