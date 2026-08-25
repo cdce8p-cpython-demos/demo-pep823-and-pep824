@@ -22,7 +22,7 @@ Then open http://localhost:8000/ in your browser.
 ## Technical Details
 
 - Built with Emscripten (WASM)
-- Python 3.15 with custom implementation
+- Python 3.16 with custom implementation
 - Requires `SharedArrayBuffer` support (enabled via CORS headers)
 
 ## Credits
