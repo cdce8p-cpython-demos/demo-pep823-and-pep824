@@ -54,7 +54,7 @@
                         Explore the semantics of the proposals with this interactive WebAssembly demo.
                         Write Python code in the editor, run it in your browser, or experiment in the interactive REPL.
                     </p>
-                    <h2>PEP 823 - None-aware operators</h2>
+                    <h2>PEP 823 - None-aware access operators</h2>
                     <p class="subtitle">
                         <a href="https://discuss.python.org/t/" class="github-link" target="_blank">discuss.python.org thread →</a>
                     </p>
@@ -62,7 +62,7 @@
                         <span class="pep-button-icon">📜</span>
                         Read PEP 823 Specification
                     </a>
-                    <h2>PEP 824 - Coalescing operators</h2>
+                    <h2>PEP 824 - None-coalescing operators</h2>
                     <p class="subtitle">
                         <a href="https://discuss.python.org/t/" class="github-link" target="_blank">discuss.python.org thread →</a>
                     </p>
@@ -90,13 +90,13 @@
                                     <td><code>_t[b] if (_t := a) is not None else None</code></td>
                                 </tr>
                                 <tr>
-                                    <td>▶ None-coalesce</td>
+                                    <td>▶ None-coalescing</td>
                                     <td><code>a ?? b</code></td>
                                     <td><code>_t if (_t := a) is not None else b</code></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>▶ None-coalesce assignment</td>
+                                    <td>▶ None-coalescing assignment</td>
                                     <td style="padding-right: 1rem"><code>a ??= b</code></td>
                                     <td><code>if a is None: a = b</code></td>
                                 </tr>
